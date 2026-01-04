@@ -1,0 +1,42 @@
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+
+    password: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin"], // allowed roles
+      default: "user", // 👈 very important
+      lowercase: true,
+      trim: true,
+    },
+
+    // 🔑 Used for real logout & refresh flow
+    refreshToken: {
+      type: String,
+      default: null,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export default mongoose.model("User", userSchema);

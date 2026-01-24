@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Cart from "../models/cart.model.js";
-import Book from "../models/note.model.js"; // ✅ FIXED import
+import Book from "../models/note.model.js"; 
 
 
 // ================= GET MY CART =================

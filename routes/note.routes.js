@@ -15,7 +15,7 @@ router.post("/add", protect,authorize("admin"), createBook);
 router.put("/update", protect,authorize("admin"), updateBook);
 router.delete("/delete", protect,authorize("admin"), deleteBook);
 //ANYONE
-router.get("/getall", protect, getMyBooks);
-router.get("/getbyid", protect, getBookById);
+router.get("/getall",  getMyBooks);
+router.get("/getbyid/:id", getBookById);
 
 export default router;

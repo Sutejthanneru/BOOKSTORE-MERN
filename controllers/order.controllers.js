@@ -12,7 +12,7 @@ export const createOrder = async (req, res) => {
 
     let address;
 
-    // 1️⃣ Use default address if addressId not provided
+   
     if (!addressId) {
       address = await Address.findOne({
         user: req.userId,
@@ -155,7 +155,10 @@ export const getOrderById = async (req, res) => {
       });
     }
 
-    res.status(200).json(order);
+    res.status(200).json({
+      order,
+      message:"order fetched successfully"
+    });
   } catch (error) {
     res.status(500).json({
       message: "Failed to fetch order",

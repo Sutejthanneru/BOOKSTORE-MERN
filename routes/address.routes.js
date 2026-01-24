@@ -12,6 +12,6 @@ const router = Router();
 router.get("/getall", protect, getMyAddresses);
 router.post("/add", protect, addAddress);
 router.put("/update", protect, updateAddress);
-router.delete("/delete", protect, deleteAddress);
+router.delete("/delete/:id", protect, deleteAddress);
 
 export default router;

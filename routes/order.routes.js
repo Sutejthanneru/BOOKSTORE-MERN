@@ -11,6 +11,6 @@ const router = Router();
 
 router.post("/create", protect, createOrder);
 router.get("/getall", protect, getMyOrders);
-router.post("/getsingle", protect, getOrderById);
+router.post("/getsingle/:id", protect, getOrderById);
 router.put("/cancel",protect,cancelOrder);
 export default router;

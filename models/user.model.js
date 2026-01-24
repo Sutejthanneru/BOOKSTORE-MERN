@@ -22,13 +22,11 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["user", "admin"], // allowed roles
-      default: "user", // 👈 very important
+      enum: ["user", "admin"], 
+      default: "user",
       lowercase: true,
       trim: true,
     },
-
-    // 🔑 Used for real logout & refresh flow
     refreshToken: {
       type: String,
       default: null,

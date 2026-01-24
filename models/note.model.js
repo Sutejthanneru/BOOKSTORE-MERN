@@ -40,26 +40,14 @@ const bookSchema = new mongoose.Schema(
       trim: true,
       index: true
     },
-
-    // 🖼 Book images
-    images: [
-      {
-        type: String
-      }
-    ],
-
-    // ⭐ Rating info (for future reviews)
     rating: {
       type: Number,
       default: 0
     },
-
     numReviews: {
       type: Number,
       default: 0
     },
-
-    // 📌 Availability (soft hide)
     isActive: {
       type: Boolean,
       default: true

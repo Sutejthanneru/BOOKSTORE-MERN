@@ -54,13 +54,15 @@ export const getMyBooks = async (req, res) => {
 };
 
 // ================= GET SINGLE BOOK =================
+
+
 export const getBookById = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
 
     const book = await Book.findById(id);
 
-    if (!book || !book.isActive) {
+    if (!book) {
       return res.status(404).json({
         message: "Book not found"
       });
@@ -68,12 +70,14 @@ export const getBookById = async (req, res) => {
 
     res.status(200).json(book);
   } catch (error) {
+    console.error("Get book by id error:", error);
+
     res.status(500).json({
-      message: "Failed to fetch book",
-      error: error.message
+      message: "Failed to fetch book"
     });
   }
 };
+
 
 // ================= UPDATE BOOK =================
 export const updateBook = async (req, res) => {

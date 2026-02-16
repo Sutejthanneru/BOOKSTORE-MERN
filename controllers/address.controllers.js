@@ -85,7 +85,7 @@ export const addAddress = async (req, res) => {
 // ================= UPDATE ADDRESS =================
 export const updateAddress = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params;c
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({

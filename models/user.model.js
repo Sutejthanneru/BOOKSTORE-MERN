@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["user", "admin"], 
+      enum: ["user", "admin"],
       default: "user",
       lowercase: true,
       trim: true,
@@ -31,10 +31,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
+   resetPasswordToken: String,
+  resetPasswordExpire: Date
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export default mongoose.model("User", userSchema);
